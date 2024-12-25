@@ -1,3 +1,4 @@
+# ForGen Lab FreezerPi
 This work is based on the awesome scripts provided by randomnerdtutorials.com
 
 https://RandomNerdTutorials.com/raspberry-pi-motion-email-python/
@@ -6,8 +7,11 @@ https://RandomNerdTutorials.com/raspberry-pi-ds18b20-python/
 
 https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/Raspberry_Pi_DS18B20_Temperature_Sensing/code.py
 
+## Hardware
+- Raspberry Pi 4
+- Ds18b20 temperature sensor
 
-
+## Software
 1) Place the temp_alarm.py script under the path `/home/pi/` (assumming your username is "pi")
 
 2) Create a new file in /etc/systemd/system/. We will call it temp_alarm.service (see temp_alarm.service in the repo).
