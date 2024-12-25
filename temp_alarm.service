@@ -1,0 +1,18 @@
+[Unit]
+Description=Temperature Alarm Script
+After=network.target
+
+[Service]
+# Replace "pi" with your user if necessary
+User=pi
+ExecStart=/usr/bin/python3 /home/pi/temp_alarm.py
+WorkingDirectory=/home/pi
+# Capture logs in the systemd journal (optional)
+StandardOutput=inherit
+StandardError=inherit
+# If you want to keep the script running even if it crashes, uncomment:
+# Restart=always
+# RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
