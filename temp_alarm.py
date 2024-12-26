@@ -105,6 +105,9 @@ def main():
     # This way, you'll get a status email right after the script starts reading the sensor.
     last_status_email_time = time.time() - STATUS_EMAIL_INTERVAL
 
+    # Path to the local file where we log temperature + timestamp
+    log_file_path = "/home/pi/temperature_log.csv"
+    
     while True:
         temp_c = read_temp()
         if temp_c is not None:
