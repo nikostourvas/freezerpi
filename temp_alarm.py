@@ -109,15 +109,20 @@ def main():
         temp_c = read_temp()
         if temp_c is not None:
             print(f"Current temperature: {temp_c:.2f}°C")
+            
+            # 1) Write temperature + timestamp to file
+            with open(log_file_path, "a") as logf:
+                timestamp_str = time.strftime("%Y-%m-%d %H:%M:%S")
+                logf.write(f"{timestamp_str},{temp_c:.2f}\n")
 
-            # 1) Check for low-temp alarm
+            # 2) Check for low-temp alarm
             if temp_c < TEMPERATURE_THRESHOLD and not alarm_email_sent:
                 send_temperature_alarm(temp_c)
                 alarm_email_sent = True
             elif temp_c >= TEMPERATURE_THRESHOLD and alarm_email_sent:
                 alarm_email_sent = False
 
-            # 2) Send a status email twice a day
+            # 3) Send a status email twice a day
             current_time = time.time()
             if (current_time - last_status_email_time) >= STATUS_EMAIL_INTERVAL:
                 send_status_email(temp_c)
