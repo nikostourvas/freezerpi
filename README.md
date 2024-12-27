@@ -26,7 +26,7 @@ Here you set up authentication (put in your username and password). <connection_
 sudo nmcli connection modify "<connection_name>" wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.phase2-auth mschapv2 802-1x.identity "<your_username>" 802-1x.password "<your_password>"
 ```
 
-(Only if necessary) Add a CA certificate, I didn't have to do this so I can't elaborate further. The command is:
+(Only if necessary) Add a CA certificate:
 ```
 sudo nmcli connection modify "<connection_name>" 802-1x.ca-cert "/path/to/ca_cert.pem"
 ```
